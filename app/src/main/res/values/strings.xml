@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GADS2020Leaderboard</string>
+    <string name="leaderboard_label">LEADERBOARD</string>
+    <!--Fragment-->
+    <string name="learning_leaders_fragment">Learning Leaders</string>
+    <string name="skill_iq_leaders_fragment">Skill IQ Leaders</string>
 </resources>
