@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">GADS2020Leaderboard</string>
     <string name="leaderboard_label">LEADERBOARD</string>
-    <!--Fragment-->
+    <!--Fragments Labels-->
     <string name="learning_leaders_fragment">Learning Leaders</string>
     <string name="skill_iq_leaders_fragment">Skill IQ Leaders</string>
+
+    <!--Project Submission Hints-->
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="github_link_hint">Project on GITHUB(link)</string>
+
 </resources>

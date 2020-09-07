@@ -3,15 +3,20 @@ package com.joesoft.gads2020leaderboard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class LeaderboardActivity extends AppCompatActivity {
+public class LeaderboardActivity extends AppCompatActivity implements View.OnClickListener {
     public static final int LEARNING_LEADERS_INDEX = 0;
     public static final int SKILL_IQ_LEADERS_INDEX = 1;
-    private ViewPager mViewPager;
 
+    private ViewPager mViewPager;
+    private MaterialButton mBtnSubmit;
     private LearningLeadersFragment mLearningLeadersFragment;
     private SkillIqLeadersFragment mSkillIqLeadersFragment;
     private LeaderBoardPageAdapter mLeaderBoardPageAdapter;
@@ -21,6 +26,9 @@ public class LeaderboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         mViewPager = findViewById(R.id.view_pager);
+        mBtnSubmit = findViewById(R.id.btn_submit);
+
+        mBtnSubmit.setOnClickListener(this);
 
         setUpViewPager();
     }
@@ -41,5 +49,15 @@ public class LeaderboardActivity extends AppCompatActivity {
         tabLayout.getTabAt(LEARNING_LEADERS_INDEX).setText(getString(R.string.learning_leaders_fragment));
         tabLayout.getTabAt(SKILL_IQ_LEADERS_INDEX).setText(R.string.skill_iq_leaders_fragment);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_submit:
+                Intent intent = new Intent(LeaderboardActivity.this, ProjectSubmissionActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
