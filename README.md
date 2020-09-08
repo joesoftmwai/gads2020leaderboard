@@ -1,6 +1,6 @@
-# gads2020leaderboard -app
+# GADS2020 leaderboard app
 
-# the app summarizes the top GADS2020 learners in Skill IQ and Learning Hours
+# The app summarizes the top GADS2020 learners in Skill IQ and Learning Hours
 
 Summary on how to navigate across the app:
 1. Open the app and the first screen that appears is the landing screen
