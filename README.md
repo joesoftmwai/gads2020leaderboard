@@ -4,6 +4,7 @@
 
 Summary on how to navigate across the app:
 1. Open the app and the first screen that appears is the landing screen.
+
     <img src="https://github.com/joesoftmwai/gads2020leaderboard/blob/master/app/src/main/res/drawable/landing_screen.png" alt="landing_screen" width="210" height="350" />
 
 2. After some seconds the leanderboard is displayed.
@@ -14,6 +15,7 @@ Summary on how to navigate across the app:
 
 3. On pressing the button on the top left screen of the leaderboard labeled "submit", project submission screen is launched.
   - This screen contains the form responsible for project submission.
+  
      <img src="https://github.com/joesoftmwai/gads2020leaderboard/blob/master/app/src/main/res/drawable/submit_project.png" alt="submit_project" width="210" height="350" />
 
 4. On clicking the submit button, a confirm dialog pops up.
