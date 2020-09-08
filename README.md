@@ -15,7 +15,7 @@ Summary on how to navigate across the app:
 4. On clicking the submit button, a confirm dialog pops up
 
 
-   <img src="https://github.com/joesoftmwai/gads2020leaderboard/blob/master/app/src/main/res/drawable/confirm.png" alt="confirm_image" width="250" height="350" />
+   <img src="https://github.com/joesoftmwai/gads2020leaderboard/blob/master/app/src/main/res/drawable/confirm.png" alt="confirm_image" width="210" height="350" />
 
 5. On clicking ok on the confirm dialog, the project is submitted:
   - If project submission succeeds, a succeess dialog pops up
