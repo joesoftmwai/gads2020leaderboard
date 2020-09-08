@@ -7,16 +7,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class LeaderboardActivity extends AppCompatActivity implements View.OnClickListener {
+public class LeaderboardActivity extends AppCompatActivity
+        implements View.OnClickListener, ILeaderBoard {
     public static final int LEARNING_LEADERS_INDEX = 0;
     public static final int SKILL_IQ_LEADERS_INDEX = 1;
 
     private ViewPager mViewPager;
     private MaterialButton mBtnSubmit;
+    private ProgressBar mProgressBar;
+
     private LearningLeadersFragment mLearningLeadersFragment;
     private SkillIqLeadersFragment mSkillIqLeadersFragment;
     private LeaderBoardPageAdapter mLeaderBoardPageAdapter;
@@ -27,6 +31,7 @@ public class LeaderboardActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_leaderboard);
         mViewPager = findViewById(R.id.view_pager);
         mBtnSubmit = findViewById(R.id.btn_submit);
+        mProgressBar = findViewById(R.id.progressBar);
 
         mBtnSubmit.setOnClickListener(this);
 
@@ -59,5 +64,15 @@ public class LeaderboardActivity extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    public void showProgressBar() {
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        mProgressBar.setVisibility(View.INVISIBLE);
     }
 }

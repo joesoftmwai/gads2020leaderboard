@@ -18,8 +18,8 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
         openLeaderBoard();
     }
 
@@ -33,5 +33,5 @@ public class LandingActivity extends AppCompatActivity {
                 finish();
             }
         }, 3000);
-    }
+}
 }
