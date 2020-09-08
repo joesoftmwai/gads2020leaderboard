@@ -5,7 +5,6 @@
 Summary on how to navigate across the app:
 1. Open the app and the first screen that appears is the landing screen
 
-
 2. After some seconds the leanderboard is displayed
   - The leader board contains two tabs one for Learning Leaders & the other one for skill Iq leaders and a button on the top left
 
