@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.joesoft.gads2020leaderboard.models.SkillIQLeader;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,12 @@ public class SkillIqLeadersRecyclerAdapter extends RecyclerView.Adapter<SkillIqL
         holder.mtvName.setText(skillIQLeader.getName());
         holder.mtvScore.setText(skillIQLeader.getScore());
         holder.mtvCountry.setText(skillIQLeader.getCountry());
+
+        Picasso.get()
+                .load(skillIQLeader.getBadgeUrl())
+                .placeholder(R.drawable.top_learner_badge)
+                .fit()
+                .into(holder.mSkillIqBadge);
 
     }
 

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.joesoft.gads2020leaderboard.models.LearningLeader;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,12 @@ public class LearningLeadersRecyclerAdapter extends RecyclerView.Adapter<Learnin
         holder.mtvName.setText(learningLeader.getName());
         holder.mtvHours.setText(learningLeader.getHours());
         holder.mtvCountry.setText(learningLeader.getCountry());
+
+        Picasso.get()
+                .load(learningLeader.getBadgeUrl())
+                .placeholder(R.drawable.top_learner_badge)
+                .fit().centerCrop()
+                .into(holder.mTopLearnerBadge);
     }
 
     @Override

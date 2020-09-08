@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,12 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LearningLeadersFragment extends Fragment {
+public class LearningLeadersFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "LearningLeadersFragment";
     private RecyclerView mLearningLeadersRecycler;
     private LearningLeadersRecyclerAdapter mLearningLeadersRecyclerAdapter;
     private ArrayList<LearningLeader> mLearningLeaders;
     private ILeaderBoard mILeaderBoard;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +39,9 @@ public class LearningLeadersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_learning_leaders, container, false);
         mLearningLeadersRecycler = view.findViewById(R.id.rv_learning_leaders);
+        mSwipeRefreshLayout = view.findViewById(R.id.swipe_refesh_learning_leaders);
+
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         fetchLearningLeaders();
 
@@ -84,5 +89,15 @@ public class LearningLeadersFragment extends Fragment {
         } catch (ClassCastException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        fetchLearningLeaders();
+        onItemsLoadComplete();
+    }
+
+    private void onItemsLoadComplete() {
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }

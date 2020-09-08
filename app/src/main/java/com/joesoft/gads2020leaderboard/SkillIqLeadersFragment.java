@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,12 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SkillIqLeadersFragment extends Fragment {
+public class SkillIqLeadersFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "SkillIqLeadersFragment";
     private RecyclerView mSkillIqLeadersRecycler;
     private SkillIqLeadersRecyclerAdapter mSkillIqLeadersRecyclerAdapter;
     private ArrayList<SkillIQLeader> mSkillIQLeaders = new ArrayList<>();
     private ILeaderBoard mILeaderBoard;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +39,9 @@ public class SkillIqLeadersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_skill_iq_leaders, container, false);
         mSkillIqLeadersRecycler = view.findViewById(R.id.rv_skill_iq_leaders);
+        mSwipeRefreshLayout = view.findViewById(R.id.swipe_refresh_skill_iq_leaders);
+
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         fetchSkillIqLeaders();
 
@@ -87,5 +92,15 @@ public class SkillIqLeadersFragment extends Fragment {
         } catch (ClassCastException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        fetchSkillIqLeaders();
+        onItemsLoadComplete();
+    }
+
+    private void onItemsLoadComplete() {
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }
